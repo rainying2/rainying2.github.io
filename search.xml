@@ -465,18 +465,15 @@
 <h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><h3 id="函数格式"><a href="#函数格式" class="headerlink" title="函数格式"></a>函数格式</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> 方法名(参数列表)&#123;</span><br><span class="line">		函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>JavaScript函数定义必须用小写的 function；</p>
-</li>
-<li><p>JavaScript函数无需定义返回值类型,直接在 function后面书写方法名；</p>
-</li>
-<li><p>参数的定义无需使用yar关键字,否则报错；</p>
-</li>
-<li><p>JavaScript函数体中，return可以不写，也可以return具体值,或者仅仅写return;</p>
+<li>JavaScript函数定义必须用小写的 function；</li>
+<li>JavaScript函数无需定义返回值类型,直接在 function后面书写方法名；</li>
+<li>参数的定义无需使用yar关键字,否则报错；</li>
+<li>JavaScript函数体中，return可以不写，也可以return具体值,或者仅仅写return;</li>
+</ul>
 <h3 id="函数使用的注意事项"><a href="#函数使用的注意事项" class="headerlink" title="函数使用的注意事项"></a>函数使用的注意事项</h3><p>&emsp;&emsp;<font color="red">JavaScript函数调用执行完毕一定有返回值，值及类型根据return决定，如果未 return具体值，返回值为 undefined</font><br>&emsp;&emsp;JavaScript函数若同名，则不存在方法重载，只有方法相互覆盖，最后定义的函数覆盖之前的定义;<br>&emsp;&emsp;因为JavaScript不存在函数重载，所以JavaScript仅根据方法名来调用函数，即使实参与函数的形参不匹配，也不会影响正常调用。<br>&emsp;&emsp;如果形参未赋值，就是用默认值undefined。</p>
 <h2 id="自定义对象"><a href="#自定义对象" class="headerlink" title="自定义对象"></a>自定义对象</h2><h3 id="function构造函数"><a href="#function构造函数" class="headerlink" title="function构造函数"></a>function构造函数</h3><p>我们知道，JavaScript中的引用数据类型都是对象，而对象在 JavaScript中可以用函数来表示。<br>相当于java中创建某个 class类</p>
-</li>
-<li><p>无形参格式:</p>
-</li>
+<ul>
+<li>无形参格式:</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> 对象名()&#123;</span><br><span class="line">	函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
