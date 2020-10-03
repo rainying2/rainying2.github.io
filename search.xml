@@ -130,6 +130,75 @@
       </tags>
   </entry>
   <entry>
+    <title>PHP基础</title>
+    <url>/2019/11/12/PHP%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>PHP的结构类似于HTML，两端由<code>&lt;?php  ?&gt;</code>包裹起来。代码写在标签内部。<code>?&gt;</code>后便签可要可不要。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="两种注释"><a href="#两种注释" class="headerlink" title="两种注释"></a>两种注释</h2><p>PHP的两种注释与java相同</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.1单行注释</span></span><br><span class="line"><span class="comment">// 1.2多行注释</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">/* */</span></span><br></pre></td></tr></table></figure>
+<h2 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h2><p>定义变量格式为：<code>$变量名 = 变量值;</code> 可以不赋值。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$num = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="打印内容"><a href="#打印内容" class="headerlink" title="打印内容"></a>打印内容</h2><ul>
+<li>echo 打印内容;</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">echo</span> $num;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>print_r(数组/字典);&emsp;&emsp;&emsp;打印数组</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">print_r($arr);</span><br></pre></td></tr></table></figure>
+<p><font color="red">注意点: 后端编写的代码不能直接运行，只能放到服务器对应的文件夹下，通过服务器运行。</font><br>如何通过服务器运行: 通过ip地址找到服务器对应的文件夹，然后再找到对应的文件运行。</p>
+<h2 id="定义集合"><a href="#定义集合" class="headerlink" title="定义集合"></a>定义集合</h2><ol>
+<li>数组</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$arr = <span class="keyword">array</span>(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">print_r($arr);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> $arr[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>字典（对象）</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> dict = &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;jly&quot;</span>, <span class="string">&quot;age&quot;</span>:<span class="string">&quot;33&quot;</span>&#125;;</span><br><span class="line">dict[<span class="string">&quot;name&quot;</span>];</span><br><span class="line">$dict = <span class="keyword">array</span>(<span class="string">&quot;name&quot;</span>=&gt;<span class="string">&quot;jly&quot;</span>, <span class="string">&quot;age&quot;</span>=&gt;<span class="string">&quot;33&quot;</span>);</span><br><span class="line">print_r($dict);</span><br><span class="line"><span class="keyword">echo</span>  <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> $dict[<span class="string">&quot;name&quot;</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="分支循环语句"><a href="#分支循环语句" class="headerlink" title="分支循环语句"></a>分支循环语句</h2><p>PHP的循环分支语句与JavaScript的循环分支语句大同小异。</p>
+<h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$age = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">if</span>($age &gt;= <span class="number">18</span>)&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">&quot;成年人&quot;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">&quot;未成年人&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三目语句"><a href="#三目语句" class="headerlink" title="三目语句"></a>三目语句</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$age = <span class="number">16</span>;</span><br><span class="line">$res = ($age &gt;= <span class="number">18</span>) ? <span class="string">&quot;成年人&quot;</span> : <span class="string">&quot;未成年人&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> $res;</span><br></pre></td></tr></table></figure>
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$age = <span class="number">16</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> ($age)&#123;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">-1</span>:</span><br><span class="line">       <span class="keyword">echo</span> <span class="string">&quot;非人类&quot;</span>;</span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">18</span>:</span><br><span class="line">       <span class="keyword">echo</span> <span class="string">&quot;成年人&quot;</span>;</span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">default</span>:</span><br><span class="line">       <span class="keyword">echo</span> <span class="string">&quot;未成年人&quot;</span>;</span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><ol>
+<li>for语句</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$arr = <span class="keyword">array</span>(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line"><span class="keyword">for</span>($i = <span class="number">0</span>; $i &lt; count($arr); $i++)&#123;</span><br><span class="line">   <span class="keyword">echo</span> $arr[$i];</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>while语句</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$arr = <span class="keyword">array</span>(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">$index = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> ($index &lt; count($arr))&#123;</span><br><span class="line">    <span class="keyword">echo</span> $arr[$index];</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">    $index++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="接收数据"><a href="#接收数据" class="headerlink" title="接收数据"></a>接收数据</h1><h2 id="接收前端的get请求"><a href="#接收前端的get请求" class="headerlink" title="接收前端的get请求"></a>接收前端的get请求</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$_GET</span><br><span class="line">print_r($_GET);</span><br><span class="line"><span class="keyword">echo</span> $_GET[<span class="string">&quot;userName&quot;</span>];</span><br><span class="line"><span class="keyword">echo</span> $_GET[<span class="string">&quot;userPwd&quot;</span>];</span><br><span class="line"><span class="number">2.2</span><span class="number">.2</span> 接收前端的post请求</span><br><span class="line">$_POST</span><br><span class="line">print_r($_POST);</span><br><span class="line"><span class="keyword">echo</span> $_POST[<span class="string">&quot;userName&quot;</span>];</span><br><span class="line"><span class="keyword">echo</span> $_POST[<span class="string">&quot;userPwd&quot;</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="接收文件"><a href="#接收文件" class="headerlink" title="接收文件"></a>接收文件</h2><p>注意:</p>
+<ol>
+<li>上传文件一般使用POST提交</li>
+<li>上传文件必须设置<code>enctype=&quot;multipart/form-data&quot;</code></li>
+<li>上传的文件在PHP中可以通过<code>$_FILES</code>获取</li>
+<li>PHP中文件默认会上传到一个临时目录, 接收完毕之后会自动删除</li>
+</ol>
+<p>默认情况下服务器对上传文件的大小是有限制的，如果想修改上传文件的限制可以修改php.ini文件</p>
+<blockquote>
+<p>file_uploads = On&emsp;&emsp; ; &emsp;是否允许上传文件 On/Off 默认是On<br>upload_max_filesize =2048M &emsp; ; &emsp;上传文件的最大限制<br>post_max_size = 2048M  &emsp; ;&emsp;&emsp;通过Post提交的最多数据<br>max_execution_time = 30000&emsp; ; &emsp;&emsp;脚本最长的执行时间 单位为秒<br>max_input_time =30000 &emsp;; &emsp;&emsp;接收提交的数据的时间限制 单位为秒<br>memory_limit = 2048M &emsp;;&emsp;&emsp;最大的内存消耗</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.获取上传文件对应的字典</span></span><br><span class="line">$fileInfo = $_FILES[<span class="string">&quot;upFile&quot;</span>];</span><br><span class="line"><span class="comment">//print_r($fileInfo);</span></span><br><span class="line"><span class="comment">// 2.获取上传文件的名称</span></span><br><span class="line">$fileName = $fileInfo[<span class="string">&quot;name&quot;</span>];</span><br><span class="line"><span class="comment">// 3.获取上传文件保存的临时路径</span></span><br><span class="line">$filePath = $fileInfo[<span class="string">&quot;tmp_name&quot;</span>];</span><br><span class="line"><span class="comment">// 4.移动文件</span></span><br><span class="line">move_uploaded_file($filePath, <span class="string">&quot;./source/&quot;</span>.$fileName);</span><br></pre></td></tr></table></figure>
+<h2 id="PHP中引入文件"><a href="#PHP中引入文件" class="headerlink" title="PHP中引入文件"></a>PHP中引入文件</h2><p>php中获取文件内容，使用        </p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">echo</span> file_get_contents(<span class="string">&quot;文件路径&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>执行结果中有中文, 必须在php文件顶部设置，如引入HTML文件</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">&quot;content-type:text/html; charset=utf-8&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>如果PHP中需要返回XML数据, 也必须在PHP文件顶部设置</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">&quot;content-type:text/xml; charset=utf-8&quot;</span>);</span><br><span class="line"><span class="keyword">echo</span> file_get_contents(<span class="string">&quot;info.xml&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">echo</span> file_get_contents(<span class="string">&quot;12-ajax-json.txt&quot;</span>);</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PHP</category>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【笔记】Bootstrap简单运用</title>
     <url>/2019/08/06/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Bootstrap%E7%AE%80%E5%8D%95%E8%BF%90%E7%94%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Bootstrap介绍"><a href="#Bootstrap介绍" class="headerlink" title="Bootstrap介绍"></a>Bootstrap介绍</h1><p>Bootstrap，基于HTML、CSS、 JAVASCRIPT的前端框架。<br>该框架已经预定义了一套CSS样式和与样式对应的JS代码。（对应的样式有对应的特效）</p>
@@ -294,78 +363,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【笔记】Servlet域对象的总结和多文件上传</title>
-    <url>/2019/09/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Servlet%E5%9F%9F%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%80%BB%E7%BB%93%E5%92%8C%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Servlet的域对象的总结"><a href="#Servlet的域对象的总结" class="headerlink" title="Servlet的域对象的总结"></a>Servlet的域对象的总结</h1><h2 id="请求范围（ServletRequest）"><a href="#请求范围（ServletRequest）" class="headerlink" title="请求范围（ServletRequest）"></a>请求范围（ServletRequest）</h2><ul>
-<li><p>何时创建和销毁的</p>
-<ul>
-<li>创建：当用户向服务器发送一次请求，服器创建一个 request对象</li>
-<li>销毁：当服务器对这次请求作出了响应，服务器就会销毁这个 request对象</li>
-</ul>
-</li>
-<li><p>如何存取数据</p>
-<ul>
-<li>存数据：<br>  <code>void setAttribute(String name, Object value); </code></li>
-<li>取数据<br>  <code>Object getAttribute(String name);</code></li>
-</ul>
-</li>
-<li><p>作用范围</p>
-<ul>
-<li>作用范围：一次请求。（转发就是一次请求）</li>
-</ul>
-</li>
-</ul>
-<h2 id="会话范围（HttpSession）"><a href="#会话范围（HttpSession）" class="headerlink" title="会话范围（HttpSession）"></a>会话范围（HttpSession）</h2><ul>
-<li>何时创建和销毁的<ul>
-<li>创建：服务器端第一次调用 getSession方法的时候。</li>
-<li>销毁：三种情况<ol>
-<li>Session过期，默认的过期时间30分钟（可在Tomcat的配置文件中修改）</li>
-<li>非正常关闭服务器（正常关闭服务器—session会被序列化）</li>
-<li>手动调用 session. invalidate();</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>如何存取数据<ul>
-<li>存数据：<br>  <code>vold setAttribute(String name Oblect value);</code></li>
-<li>取数据:<br>  <code>Object getAttribute(String name);</code></li>
-</ul>
-</li>
-<li>作用范围<ul>
-<li>作用范围：一次会话（多次请求）</li>
-</ul>
-</li>
-</ul>
-<h2 id="应用范围（ServletContext）"><a href="#应用范围（ServletContext）" class="headerlink" title="应用范围（ServletContext）"></a>应用范围（ServletContext）</h2><ul>
-<li>何时创建和销毁的<ul>
-<li>创建：服务启动的时候创建，为每个web项目创建一个单独的ServletContext对象。</li>
-<li>销毁：服务器关闭的时候，或者项目从服务器中移除的时候。</li>
-</ul>
-</li>
-<li>如何存取数据<ul>
-<li>存数据：<br>  <code>void setAttribute(String name, Object value);</code></li>
-<li>取数据<br>  <code>Object getAttribute(String name);</code></li>
-</ul>
-</li>
-<li>作用范围<ul>
-<li>作用范围：整个应用</li>
-</ul>
-</li>
-</ul>
-<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="文件上传原理"><a href="#文件上传原理" class="headerlink" title="文件上传原理"></a>文件上传原理</h2> <img src="https://img-blog.csdnimg.cn/20201002235523291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NzIxMTQ2MQ==,size_16,color_FFFFFF,t_70#pic_center" alt="文件上传原理" style="zoom:150%;" />
-
-<h2 id="JS控制多文件上传"><a href="#JS控制多文件上传" class="headerlink" title="JS控制多文件上传"></a>JS控制多文件上传</h2><img src="https://img-blog.csdnimg.cn/20201002235536225.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NzIxMTQ2MQ==,size_16,color_FFFFFF,t_70#pic_center" alt="JS控制多文件上传" style="zoom:150%;" />]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>Servlet</tag>
-        <tag>多文件</tag>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【笔记】JDBC和连接池</title>
     <url>/2019/09/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91JDBC%E5%92%8C%E8%BF%9E%E6%8E%A5%E6%B1%A0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><h2 id="JDBC工具类的抽取"><a href="#JDBC工具类的抽取" class="headerlink" title="JDBC工具类的抽取"></a>JDBC工具类的抽取</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JDBC的工具类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Kidnapper</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtils</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String driverClassName;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String url;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String username;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String password;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		<span class="comment">//获取属性文件的内容：</span></span><br><span class="line">		Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			properties.load(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;src/db.properties&quot;</span>));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		driverClassName=properties.getProperty(<span class="string">&quot;driverClassName&quot;</span>);</span><br><span class="line">		url=properties.getProperty(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">		username=properties.getProperty(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">		password=properties.getProperty(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 注册驱动的方法</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loadDriver</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Class.forName(driverClassName);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 获得连接的方法</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Connection conn = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// 将驱动也一并注册</span></span><br><span class="line">			loadDriver();</span><br><span class="line">			<span class="comment">// 获得连接</span></span><br><span class="line">			conn = DriverManager.getConnection(url,username,password);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> conn;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 释放资源的方法</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">(Statement stmt, Connection conn)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(stmt != <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">try</span>&#123;</span><br><span class="line">				stmt.close();</span><br><span class="line">			&#125;<span class="keyword">catch</span>(SQLException e)&#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			stmt = <span class="keyword">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(conn != <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">try</span>&#123;</span><br><span class="line">				conn.close();</span><br><span class="line">			&#125;<span class="keyword">catch</span>(SQLException e)&#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			conn = <span class="keyword">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">(ResultSet rs, Statement stmt, Connection conn)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(rs != <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">try</span>&#123;</span><br><span class="line">				rs.close();</span><br><span class="line">			&#125;<span class="keyword">catch</span>(SQLException e)&#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			rs = <span class="keyword">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(stmt != <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">try</span>&#123;</span><br><span class="line">				stmt.close();</span><br><span class="line">			&#125;<span class="keyword">catch</span>(SQLException e)&#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			stmt = <span class="keyword">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(conn != <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">try</span>&#123;</span><br><span class="line">				conn.close();</span><br><span class="line">			&#125;<span class="keyword">catch</span>(SQLException e)&#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			conn = <span class="keyword">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -450,6 +447,78 @@
       </tags>
   </entry>
   <entry>
+    <title>【笔记】Servlet域对象的总结和多文件上传</title>
+    <url>/2019/09/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Servlet%E5%9F%9F%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%80%BB%E7%BB%93%E5%92%8C%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Servlet的域对象的总结"><a href="#Servlet的域对象的总结" class="headerlink" title="Servlet的域对象的总结"></a>Servlet的域对象的总结</h1><h2 id="请求范围（ServletRequest）"><a href="#请求范围（ServletRequest）" class="headerlink" title="请求范围（ServletRequest）"></a>请求范围（ServletRequest）</h2><ul>
+<li><p>何时创建和销毁的</p>
+<ul>
+<li>创建：当用户向服务器发送一次请求，服器创建一个 request对象</li>
+<li>销毁：当服务器对这次请求作出了响应，服务器就会销毁这个 request对象</li>
+</ul>
+</li>
+<li><p>如何存取数据</p>
+<ul>
+<li>存数据：<br>  <code>void setAttribute(String name, Object value); </code></li>
+<li>取数据<br>  <code>Object getAttribute(String name);</code></li>
+</ul>
+</li>
+<li><p>作用范围</p>
+<ul>
+<li>作用范围：一次请求。（转发就是一次请求）</li>
+</ul>
+</li>
+</ul>
+<h2 id="会话范围（HttpSession）"><a href="#会话范围（HttpSession）" class="headerlink" title="会话范围（HttpSession）"></a>会话范围（HttpSession）</h2><ul>
+<li>何时创建和销毁的<ul>
+<li>创建：服务器端第一次调用 getSession方法的时候。</li>
+<li>销毁：三种情况<ol>
+<li>Session过期，默认的过期时间30分钟（可在Tomcat的配置文件中修改）</li>
+<li>非正常关闭服务器（正常关闭服务器—session会被序列化）</li>
+<li>手动调用 session. invalidate();</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>如何存取数据<ul>
+<li>存数据：<br>  <code>vold setAttribute(String name Oblect value);</code></li>
+<li>取数据:<br>  <code>Object getAttribute(String name);</code></li>
+</ul>
+</li>
+<li>作用范围<ul>
+<li>作用范围：一次会话（多次请求）</li>
+</ul>
+</li>
+</ul>
+<h2 id="应用范围（ServletContext）"><a href="#应用范围（ServletContext）" class="headerlink" title="应用范围（ServletContext）"></a>应用范围（ServletContext）</h2><ul>
+<li>何时创建和销毁的<ul>
+<li>创建：服务启动的时候创建，为每个web项目创建一个单独的ServletContext对象。</li>
+<li>销毁：服务器关闭的时候，或者项目从服务器中移除的时候。</li>
+</ul>
+</li>
+<li>如何存取数据<ul>
+<li>存数据：<br>  <code>void setAttribute(String name, Object value);</code></li>
+<li>取数据<br>  <code>Object getAttribute(String name);</code></li>
+</ul>
+</li>
+<li>作用范围<ul>
+<li>作用范围：整个应用</li>
+</ul>
+</li>
+</ul>
+<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="文件上传原理"><a href="#文件上传原理" class="headerlink" title="文件上传原理"></a>文件上传原理</h2> <img src="https://img-blog.csdnimg.cn/20201002235523291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NzIxMTQ2MQ==,size_16,color_FFFFFF,t_70#pic_center" alt="文件上传原理" style="zoom:150%;" />
+
+<h2 id="JS控制多文件上传"><a href="#JS控制多文件上传" class="headerlink" title="JS控制多文件上传"></a>JS控制多文件上传</h2><img src="https://img-blog.csdnimg.cn/20201002235536225.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NzIxMTQ2MQ==,size_16,color_FFFFFF,t_70#pic_center" alt="JS控制多文件上传" style="zoom:150%;" />]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Servlet</tag>
+        <tag>多文件</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【笔记】简单的SQL注入理解</title>
     <url>/2019/09/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%AE%80%E5%8D%95%E7%9A%84SQL%E6%B3%A8%E5%85%A5%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="SQL注入漏洞"><a href="#SQL注入漏洞" class="headerlink" title="SQL注入漏洞"></a>SQL注入漏洞</h1><p>通过输入包含SQL语句关键字来对系统进行不法操作，例如别人在只知道你的账号而不知道你的密码的状况下，通过SQL注入漏洞可使用你的用户名登录进系统。</p>
@@ -471,27 +540,6 @@
         <tag>数据库</tag>
         <tag>sql</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>博客文章模板</title>
-    <url>/2019/09/01/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>其它</category>
-      </categories>
   </entry>
   <entry>
     <title>会话技术(Cookie,Session)</title>
@@ -583,6 +631,27 @@ Session作为域对象，作用范围就是<font color="red">一次会话</font>
         <tag>Cookie</tag>
         <tag>Session</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>博客文章模板</title>
+    <url>/2019/09/01/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
   </entry>
   <entry>
     <title>观察者模式：秒杀启动案例（含Quartz的简单应用）</title>
