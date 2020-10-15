@@ -720,6 +720,70 @@
       </tags>
   </entry>
   <entry>
+    <title>【笔记】简单的SQL注入理解</title>
+    <url>/2019/09/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%AE%80%E5%8D%95%E7%9A%84SQL%E6%B3%A8%E5%85%A5%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="SQL注入漏洞"><a href="#SQL注入漏洞" class="headerlink" title="SQL注入漏洞"></a>SQL注入漏洞</h1><p>通过输入包含SQL语句关键字来对系统进行不法操作，例如别人在只知道你的账号而不知道你的密码的状况下，通过SQL注入漏洞可使用你的用户名登录进系统。</p>
+<ul>
+<li>输入用户名（以下“aaa”为用户名）<ul>
+<li>aaa’ or ‘1=1 密码随意</li>
+<li>aaa’ – 密码随意</li>
+</ul>
+</li>
+</ul>
+<h1 id="SQL注入漏洞分析"><a href="#SQL注入漏洞分析" class="headerlink" title="SQL注入漏洞分析"></a>SQL注入漏洞分析</h1> <img src="https://img-blog.csdnimg.cn/20201002223643461.png#pic_center" alt="SQL注入漏洞分析" style="zoom:150%;" />
+
+<h1 id="SQL注入漏洞解决"><a href="#SQL注入漏洞解决" class="headerlink" title="SQL注入漏洞解决"></a>SQL注入漏洞解决</h1><p>需要采用PreparedStatement对象解决SQL注入漏洞。这个对象将SQL预先进行编译，使用？作为占位符。？所代表的内容是SQL所固定。再次传入变量（包含SQL的关键字）。这个时候也不会识别这些关键字。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【项目介绍】个人博客系统</title>
+    <url>/2019/09/01/%E3%80%90%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E3%80%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="系统简介"><a href="#系统简介" class="headerlink" title="系统简介"></a>系统简介</h1><p>个人博客系统分为两个部分，一部分是前台展示系统，另一部分是后台管理系统。前台展示系统有浏览博客，发表评论，搜索博客，查看个人信息等功能；后天管理系统有写博客，修改博客，删除博客，管理评论，修改个人信息等功能。</p>
+<p><strong>所用技术：</strong></p>
+<blockquote>
+<p>vue+vue-router+vuex+less+axios+ueditor+node.js+mysql</p>
+</blockquote>
+<h1 id="系统页面设计"><a href="#系统页面设计" class="headerlink" title="系统页面设计"></a>系统页面设计</h1><p><img src="https://img-blog.csdnimg.cn/20201014164844628.jpg#pic_center" alt="基于Vue的个人博客页面设计图"></p>
+<h1 id="界面效果"><a href="#界面效果" class="headerlink" title="界面效果"></a>界面效果</h1><h2 id="前台博客系统"><a href="#前台博客系统" class="headerlink" title="前台博客系统"></a>前台博客系统</h2><h3 id="加载界面"><a href="#加载界面" class="headerlink" title="加载界面"></a>加载界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014183952454.png#pic_center" alt="加载页面"></p>
+<h3 id="前台系统首页"><a href="#前台系统首页" class="headerlink" title="前台系统首页"></a>前台系统首页</h3><p><img src="https://img-blog.csdnimg.cn/20201014184025724.png#pic_center" alt="前台系统首页"></p>
+<h3 id="技术文章界面"><a href="#技术文章界面" class="headerlink" title="技术文章界面"></a>技术文章界面</h3><p><img src="https://img-blog.csdnimg.cn/20201014184051720.png#pic_center" alt="技术文章界面"></p>
+<h3 id="音乐文章界面"><a href="#音乐文章界面" class="headerlink" title="音乐文章界面"></a>音乐文章界面</h3><p><img src="https://img-blog.csdnimg.cn/20201014184121468.png#pic_center" alt="音乐文章界面"></p>
+<h3 id="感悟文章界面"><a href="#感悟文章界面" class="headerlink" title="感悟文章界面"></a>感悟文章界面</h3><p><img src="https://img-blog.csdnimg.cn/20201014184143665.png#pic_center" alt="感悟文章界面"></p>
+<h3 id="归档界面"><a href="#归档界面" class="headerlink" title="归档界面"></a>归档界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184208450.png#pic_center" alt="归档界面"></p>
+<h3 id="关于（个人信息）界面"><a href="#关于（个人信息）界面" class="headerlink" title="关于（个人信息）界面"></a>关于（个人信息）界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184247539.png#pic_center" alt="关于界面"> </p>
+<h3 id="搜索页面"><a href="#搜索页面" class="headerlink" title="搜索页面"></a>搜索页面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184335292.png#pic_center" alt="按关键字搜索"><br><img src="https://img-blog.csdnimg.cn/20201014184409787.png#pic_center" alt="点击标签搜索"></p>
+<h3 id="文章详情页面及评论页面"><a href="#文章详情页面及评论页面" class="headerlink" title="文章详情页面及评论页面"></a>文章详情页面及评论页面</h3><p>点击“上一篇文章”可跳转到上一篇文章，点击“下一篇文章”同理。<br> <img src="https://img-blog.csdnimg.cn/20201014184448918.png#pic_center" alt="文章详情页及评论页面"></p>
+<h2 id="后台管理系统"><a href="#后台管理系统" class="headerlink" title="后台管理系统"></a>后台管理系统</h2><h3 id="登录界面"><a href="#登录界面" class="headerlink" title="登录界面"></a>登录界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184522787.png#pic_center" alt="登录界面"><br><img src="https://img-blog.csdnimg.cn/20201014184546819.png#pic_center" alt="信息验证错误提示"></p>
+<h3 id="技术文章（管理）界面"><a href="#技术文章（管理）界面" class="headerlink" title="技术文章（管理）界面"></a>技术文章（管理）界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184614628.png#pic_center" alt="技术文章管理界面"></p>
+<h3 id="音乐文章（管理）界面"><a href="#音乐文章（管理）界面" class="headerlink" title="音乐文章（管理）界面"></a>音乐文章（管理）界面</h3><p> <img src="https://img-blog.csdnimg.cn/2020101418464315.png#pic_center" alt="音乐文章管理界面"></p>
+<h3 id="感悟文章（管理）界面"><a href="#感悟文章（管理）界面" class="headerlink" title="感悟文章（管理）界面"></a>感悟文章（管理）界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184728207.png#pic_center" alt="感悟文章管理界面"></p>
+<h3 id="评论管理页面"><a href="#评论管理页面" class="headerlink" title="评论管理页面"></a>评论管理页面</h3><p> 删除成功后会更新列表<br> <img src="https://img-blog.csdnimg.cn/20201014184756533.png#pic_center" alt="评论管理页面"><br> <img src="https://img-blog.csdnimg.cn/20201014184821990.png#pic_center" alt="删除评论提示"></p>
+<h3 id="我的信息页面"><a href="#我的信息页面" class="headerlink" title="我的信息页面"></a>我的信息页面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184928966.png#pic_center" alt="我的信息管理页面"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201014185004477.png#pic_center" alt="修改信息提示"></p>
+<h3 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h3><p> <img src="https://img-blog.csdnimg.cn/20201014185026578.png#pic_center" alt="写文章页面"></p>
+<p><img src="https://img-blog.csdnimg.cn/2020101418504821.png#pic_center" alt="保存更改提示"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201014185118820.png#pic_center" alt="保存成功提示"></p>
+<h3 id="修改文章"><a href="#修改文章" class="headerlink" title="修改文章"></a>修改文章</h3><p> <img src="https://img-blog.csdnimg.cn/20201014185142628.png#pic_center" alt="修改文章页面"></p>
+<h3 id="文章状态修改"><a href="#文章状态修改" class="headerlink" title="文章状态修改"></a>文章状态修改</h3><p> <img src="https://img-blog.csdnimg.cn/20201014185204578.png#pic_center" alt="状态由发表修改为草稿"><br><img src="https://img-blog.csdnimg.cn/20201014185240193.png#pic_center" alt="状态由草稿改为发表"></p>
+<h3 id="删除文章"><a href="#删除文章" class="headerlink" title="删除文章"></a>删除文章</h3><p> 删除成功后提示并更新列表<br> <img src="https://img-blog.csdnimg.cn/20201014185309808.png#pic_center" alt="删除文章提示"></p>
+<h3 id="退出登录"><a href="#退出登录" class="headerlink" title="退出登录"></a>退出登录</h3><p><img src="https://img-blog.csdnimg.cn/20201014185406221.png#pic_center" alt="退出登录提示"></p>
+]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>项目介绍</tag>
+        <tag>个人博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>会话技术(Cookie,Session)</title>
     <url>/2019/09/01/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF(Cookie,Session)/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="什么是会话"><a href="#什么是会话" class="headerlink" title="什么是会话"></a>什么是会话</h1><p>会话简单理解为：用户打开一个浏览器，点击多个超连接访问服务器的web资源，然后关闭浏览器，整个过程称为是一次会话。</p>
@@ -832,29 +896,6 @@ Session作为域对象，作用范围就是<font color="red">一次会话</font>
       </categories>
   </entry>
   <entry>
-    <title>【笔记】简单的SQL注入理解</title>
-    <url>/2019/09/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%AE%80%E5%8D%95%E7%9A%84SQL%E6%B3%A8%E5%85%A5%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="SQL注入漏洞"><a href="#SQL注入漏洞" class="headerlink" title="SQL注入漏洞"></a>SQL注入漏洞</h1><p>通过输入包含SQL语句关键字来对系统进行不法操作，例如别人在只知道你的账号而不知道你的密码的状况下，通过SQL注入漏洞可使用你的用户名登录进系统。</p>
-<ul>
-<li>输入用户名（以下“aaa”为用户名）<ul>
-<li>aaa’ or ‘1=1 密码随意</li>
-<li>aaa’ – 密码随意</li>
-</ul>
-</li>
-</ul>
-<h1 id="SQL注入漏洞分析"><a href="#SQL注入漏洞分析" class="headerlink" title="SQL注入漏洞分析"></a>SQL注入漏洞分析</h1> <img src="https://img-blog.csdnimg.cn/20201002223643461.png#pic_center" alt="SQL注入漏洞分析" style="zoom:150%;" />
-
-<h1 id="SQL注入漏洞解决"><a href="#SQL注入漏洞解决" class="headerlink" title="SQL注入漏洞解决"></a>SQL注入漏洞解决</h1><p>需要采用PreparedStatement对象解决SQL注入漏洞。这个对象将SQL预先进行编译，使用？作为占位符。？所代表的内容是SQL所固定。再次传入变量（包含SQL的关键字）。这个时候也不会识别这些关键字。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-        <tag>sql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>观察者模式：秒杀启动案例（含Quartz的简单应用）</title>
     <url>/2020/07/16/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%A7%92%E6%9D%80%E5%90%AF%E5%8A%A8%E6%A1%88%E4%BE%8B%EF%BC%88%E5%90%ABQuartz%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用Quartz写一个简单的计时器，再使用观察者模式实现秒杀按钮启动的案例</p>
@@ -913,47 +954,6 @@ Session作为域对象，作用范围就是<font color="red">一次会话</font>
         <tag>java</tag>
         <tag>观察者模式</tag>
         <tag>Quartz</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【项目介绍】个人博客系统</title>
-    <url>/2019/09/01/%E3%80%90%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E3%80%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="系统简介"><a href="#系统简介" class="headerlink" title="系统简介"></a>系统简介</h1><p>个人博客系统分为两个部分，一部分是前台展示系统，另一部分是后台管理系统。前台展示系统有浏览博客，发表评论，搜索博客，查看个人信息等功能；后天管理系统有写博客，修改博客，删除博客，管理评论，修改个人信息等功能。</p>
-<p><strong>所用技术：</strong></p>
-<blockquote>
-<p>vue+vue-router+vuex+less+axios+ueditor+node.js+mysql</p>
-</blockquote>
-<h1 id="系统页面设计"><a href="#系统页面设计" class="headerlink" title="系统页面设计"></a>系统页面设计</h1><p><img src="https://img-blog.csdnimg.cn/20201014164844628.jpg#pic_center" alt="基于Vue的个人博客页面设计图"></p>
-<h1 id="界面效果"><a href="#界面效果" class="headerlink" title="界面效果"></a>界面效果</h1><h2 id="前台博客系统"><a href="#前台博客系统" class="headerlink" title="前台博客系统"></a>前台博客系统</h2><h3 id="加载界面"><a href="#加载界面" class="headerlink" title="加载界面"></a>加载界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014183952454.png#pic_center" alt="加载页面"></p>
-<h3 id="前台系统首页"><a href="#前台系统首页" class="headerlink" title="前台系统首页"></a>前台系统首页</h3><p><img src="https://img-blog.csdnimg.cn/20201014184025724.png#pic_center" alt="前台系统首页"></p>
-<h3 id="技术文章界面"><a href="#技术文章界面" class="headerlink" title="技术文章界面"></a>技术文章界面</h3><p><img src="https://img-blog.csdnimg.cn/20201014184051720.png#pic_center" alt="技术文章界面"></p>
-<h3 id="音乐文章界面"><a href="#音乐文章界面" class="headerlink" title="音乐文章界面"></a>音乐文章界面</h3><p><img src="https://img-blog.csdnimg.cn/20201014184121468.png#pic_center" alt="音乐文章界面"></p>
-<h3 id="感悟文章界面"><a href="#感悟文章界面" class="headerlink" title="感悟文章界面"></a>感悟文章界面</h3><p><img src="https://img-blog.csdnimg.cn/20201014184143665.png#pic_center" alt="感悟文章界面"></p>
-<h3 id="归档界面"><a href="#归档界面" class="headerlink" title="归档界面"></a>归档界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184208450.png#pic_center" alt="归档界面"></p>
-<h3 id="关于（个人信息）界面"><a href="#关于（个人信息）界面" class="headerlink" title="关于（个人信息）界面"></a>关于（个人信息）界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184247539.png#pic_center" alt="关于界面"> </p>
-<h3 id="搜索页面"><a href="#搜索页面" class="headerlink" title="搜索页面"></a>搜索页面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184335292.png#pic_center" alt="按关键字搜索"><br><img src="https://img-blog.csdnimg.cn/20201014184409787.png#pic_center" alt="点击标签搜索"></p>
-<h3 id="文章详情页面及评论页面"><a href="#文章详情页面及评论页面" class="headerlink" title="文章详情页面及评论页面"></a>文章详情页面及评论页面</h3><p>点击“上一篇文章”可跳转到上一篇文章，点击“下一篇文章”同理。<br> <img src="https://img-blog.csdnimg.cn/20201014184448918.png#pic_center" alt="文章详情页及评论页面"></p>
-<h2 id="后台管理系统"><a href="#后台管理系统" class="headerlink" title="后台管理系统"></a>后台管理系统</h2><h3 id="登录界面"><a href="#登录界面" class="headerlink" title="登录界面"></a>登录界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184522787.png#pic_center" alt="登录界面"><br><img src="https://img-blog.csdnimg.cn/20201014184546819.png#pic_center" alt="信息验证错误提示"></p>
-<h3 id="技术文章（管理）界面"><a href="#技术文章（管理）界面" class="headerlink" title="技术文章（管理）界面"></a>技术文章（管理）界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184614628.png#pic_center" alt="技术文章管理界面"></p>
-<h3 id="音乐文章（管理）界面"><a href="#音乐文章（管理）界面" class="headerlink" title="音乐文章（管理）界面"></a>音乐文章（管理）界面</h3><p> <img src="https://img-blog.csdnimg.cn/2020101418464315.png#pic_center" alt="音乐文章管理界面"></p>
-<h3 id="感悟文章（管理）界面"><a href="#感悟文章（管理）界面" class="headerlink" title="感悟文章（管理）界面"></a>感悟文章（管理）界面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184728207.png#pic_center" alt="感悟文章管理界面"></p>
-<h3 id="评论管理页面"><a href="#评论管理页面" class="headerlink" title="评论管理页面"></a>评论管理页面</h3><p> 删除成功后会更新列表<br> <img src="https://img-blog.csdnimg.cn/20201014184756533.png#pic_center" alt="评论管理页面"><br> <img src="https://img-blog.csdnimg.cn/20201014184821990.png#pic_center" alt="删除评论提示"></p>
-<h3 id="我的信息页面"><a href="#我的信息页面" class="headerlink" title="我的信息页面"></a>我的信息页面</h3><p> <img src="https://img-blog.csdnimg.cn/20201014184928966.png#pic_center" alt="我的信息管理页面"></p>
-<p><img src="https://img-blog.csdnimg.cn/20201014185004477.png#pic_center" alt="修改信息提示"></p>
-<h3 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h3><p> <img src="https://img-blog.csdnimg.cn/20201014185026578.png#pic_center" alt="写文章页面"></p>
-<p><img src="https://img-blog.csdnimg.cn/2020101418504821.png#pic_center" alt="保存更改提示"></p>
-<p><img src="https://img-blog.csdnimg.cn/20201014185118820.png#pic_center" alt="保存成功提示"></p>
-<h3 id="修改文章"><a href="#修改文章" class="headerlink" title="修改文章"></a>修改文章</h3><p> <img src="https://img-blog.csdnimg.cn/20201014185142628.png#pic_center" alt="修改文章页面"></p>
-<h3 id="文章状态修改"><a href="#文章状态修改" class="headerlink" title="文章状态修改"></a>文章状态修改</h3><p> <img src="https://img-blog.csdnimg.cn/20201014185204578.png#pic_center" alt="状态由发表修改为草稿"><br><img src="https://img-blog.csdnimg.cn/20201014185240193.png#pic_center" alt="状态由草稿改为发表"></p>
-<h3 id="删除文章"><a href="#删除文章" class="headerlink" title="删除文章"></a>删除文章</h3><p> 删除成功后提示并更新列表<br> <img src="https://img-blog.csdnimg.cn/20201014185309808.png#pic_center" alt="删除文章提示"></p>
-<h3 id="退出登录"><a href="#退出登录" class="headerlink" title="退出登录"></a>退出登录</h3><p><img src="https://img-blog.csdnimg.cn/20201014185406221.png#pic_center" alt="退出登录提示"></p>
-]]></content>
-      <categories>
-        <category>其它</category>
-      </categories>
-      <tags>
-        <tag>项目介绍</tag>
-        <tag>个人博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1368,10 +1368,10 @@ Session作为域对象，作用范围就是<font color="red">一次会话</font>
         <category>笔记</category>
       </categories>
       <tags>
+        <tag>JavaScript</tag>
         <tag>Jave ee</tag>
-        <tag>html</tag>
-        <tag>css</tag>
-        <tag>javascript</tag>
+        <tag>HTML</tag>
+        <tag>Css</tag>
       </tags>
   </entry>
   <entry>
@@ -1841,7 +1841,7 @@ Session作为域对象，作用范围就是<font color="red">一次会话</font>
       <tags>
         <tag>jQuery</tag>
         <tag>前端</tag>
-        <tag>javacript</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
 </search>

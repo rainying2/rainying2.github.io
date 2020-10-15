@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://rainying.com/2019/07/31/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Java%20Web%E7%9A%84%E9%83%A8%E5%88%86%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9E%E9%A1%BE/</loc>
+    
+    <lastmod>2020-10-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://rainying.com/2019/10/28/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91jQuery%E7%9A%84%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2020-10-15</lastmod>
@@ -87,13 +94,6 @@
   
   <url>
     <loc>https://rainying.com/2019/09/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91JDBC%E5%92%8C%E8%BF%9E%E6%8E%A5%E6%B1%A0/</loc>
-    
-    <lastmod>2020-10-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://rainying.com/2019/07/31/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Java%20Web%E7%9A%84%E9%83%A8%E5%88%86%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9E%E9%A1%BE/</loc>
     
     <lastmod>2020-10-12</lastmod>
     
@@ -354,35 +354,7 @@
   </url>
   
   <url>
-    <loc>https://rainying.com/tags/Cookie/</loc>
-    <lastmod>2020-10-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rainying.com/tags/Session/</loc>
-    <lastmod>2020-10-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://rainying.com/tags/sql/</loc>
-    <lastmod>2020-10-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rainying.com/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2020-10-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rainying.com/tags/Quartz/</loc>
     <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -403,6 +375,34 @@
   </url>
   
   <url>
+    <loc>https://rainying.com/tags/Cookie/</loc>
+    <lastmod>2020-10-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rainying.com/tags/Session/</loc>
+    <lastmod>2020-10-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rainying.com/tags/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-10-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rainying.com/tags/Quartz/</loc>
+    <lastmod>2020-10-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://rainying.com/tags/Jave-ee/</loc>
     <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
@@ -410,28 +410,14 @@
   </url>
   
   <url>
-    <loc>https://rainying.com/tags/html/</loc>
+    <loc>https://rainying.com/tags/HTML/</loc>
     <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://rainying.com/tags/css/</loc>
-    <lastmod>2020-10-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rainying.com/tags/javascript/</loc>
-    <lastmod>2020-10-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rainying.com/tags/javacript/</loc>
+    <loc>https://rainying.com/tags/Css/</loc>
     <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
