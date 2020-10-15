@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git的使用</title>
+    <url>/2019/07/16/Git%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Git中向本地仓库提交"><a href="#Git中向本地仓库提交" class="headerlink" title="Git中向本地仓库提交"></a>Git中向本地仓库提交</h1><img src="https://img-blog.csdnimg.cn/20201013000626415.png#pic_center" alt="向本地仓库提交文件" style="zoom:150%;" />
+
+<h1 id="向仓库中添加文件流程"><a href="#向仓库中添加文件流程" class="headerlink" title="向仓库中添加文件流程"></a>向仓库中添加文件流程</h1><img src="https://img-blog.csdnimg.cn/20201013000701473.png#pic_center" alt="向仓库中添加文件" style="zoom:150%;" />
+
+<h1 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h1><h2 id="设置用户名："><a href="#设置用户名：" class="headerlink" title="设置用户名："></a>设置用户名：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config –global user.name ‘用户名’</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置用户名邮箱："><a href="#设置用户名邮箱：" class="headerlink" title="设置用户名邮箱："></a>设置用户名邮箱：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config –global user.email ‘username@163.com’</span><br></pre></td></tr></table></figure>
+
+<h2 id="对于在git-push可能出现的错误解决"><a href="#对于在git-push可能出现的错误解决" class="headerlink" title="对于在git push可能出现的错误解决"></a>对于在git push可能出现的错误解决</h2><ul>
+<li>出现以下错误：</li>
+</ul>
+<blockquote>
+<p><font color="red">The requested URL returned error:403 Forbidden while accessing</font></p>
+</blockquote>
+<ul>
+<li>错误原因：<br>私有项目，没有权限，输入用户名密码，或者远程地址采用这种类型</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi .git/config</span><br></pre></td></tr></table></figure>
+
+<p>将文件中的</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[remote <span class="string">&quot;origin&quot;</span>]</span><br><span class="line">  url = https://github.com/用户名/仓库名.git</span><br></pre></td></tr></table></figure>
+<p>改为以下内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[remote <span class="string">&quot;origin&quot;</span>]</span><br><span class="line">  url = https://用户名：密码@github.com/用户名/仓库名.git</span><br></pre></td></tr></table></figure>
+
+<h1 id="Git常用指令"><a href="#Git常用指令" class="headerlink" title="Git常用指令"></a>Git常用指令</h1><h2 id="配置基本用户信息"><a href="#配置基本用户信息" class="headerlink" title="配置基本用户信息"></a>配置基本用户信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name &lt;你的用户名&gt;</span><br><span class="line">git config --global user.email &lt;你的邮箱地址&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建一个新仓库"><a href="#创建一个新仓库" class="headerlink" title="创建一个新仓库"></a>创建一个新仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<h2 id="从远程服务器克隆一个仓库"><a href="#从远程服务器克隆一个仓库" class="headerlink" title="从远程服务器克隆一个仓库"></a>从远程服务器克隆一个仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;远程仓库的 Url&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示当前的工作目录下的提交文件状态"><a href="#显示当前的工作目录下的提交文件状态" class="headerlink" title="显示当前的工作目录下的提交文件状态"></a>显示当前的工作目录下的提交文件状态</h2><p>（类似于GitKroken中右方窗口显示的信息）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<h2 id="将制定文件Stage（标记为将要被提交的文件）"><a href="#将制定文件Stage（标记为将要被提交的文件）" class="headerlink" title="将制定文件Stage（标记为将要被提交的文件）"></a>将制定文件Stage（标记为将要被提交的文件）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add &lt;文件路径&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="将制定文件Unstage（取消标记为将要被提交的文件）"><a href="#将制定文件Unstage（取消标记为将要被提交的文件）" class="headerlink" title="将制定文件Unstage（取消标记为将要被提交的文件）"></a>将制定文件Unstage（取消标记为将要被提交的文件）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset &lt;文件路径&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建一个提交并提供提交信息"><a href="#创建一个提交并提供提交信息" class="headerlink" title="创建一个提交并提供提交信息"></a>创建一个提交并提供提交信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;提交信息&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="显示提交历史"><a href="#显示提交历史" class="headerlink" title="显示提交历史"></a>显示提交历史</h2><p>（类似于GitKroken中窗口中显示的提交历史）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="向远程仓库推送（Push）"><a href="#向远程仓库推送（Push）" class="headerlink" title="向远程仓库推送（Push）"></a>向远程仓库推送（Push）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h2 id="从远程仓库拉取（Pull）"><a href="#从远程仓库拉取（Pull）" class="headerlink" title="从远程仓库拉取（Pull）"></a>从远程仓库拉取（Pull）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ajax基础知识及封装</title>
     <url>/2019/12/06/Ajax%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E5%B0%81%E8%A3%85/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="什么是Ajax"><a href="#什么是Ajax" class="headerlink" title="什么是Ajax"></a>什么是Ajax</h1><p>AJAX 是在不重新加载整个页面的情况下，与服务器交换数据并更新部分网页的技术。</p>
@@ -103,61 +158,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git的使用</title>
-    <url>/2019/07/16/Git%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Git中向本地仓库提交"><a href="#Git中向本地仓库提交" class="headerlink" title="Git中向本地仓库提交"></a>Git中向本地仓库提交</h1><img src="https://img-blog.csdnimg.cn/20201013000626415.png#pic_center" alt="向本地仓库提交文件" style="zoom:150%;" />
-
-<h1 id="向仓库中添加文件流程"><a href="#向仓库中添加文件流程" class="headerlink" title="向仓库中添加文件流程"></a>向仓库中添加文件流程</h1><img src="https://img-blog.csdnimg.cn/20201013000701473.png#pic_center" alt="向仓库中添加文件" style="zoom:150%;" />
-
-<h1 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h1><h2 id="设置用户名："><a href="#设置用户名：" class="headerlink" title="设置用户名："></a>设置用户名：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config –global user.name ‘用户名’</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置用户名邮箱："><a href="#设置用户名邮箱：" class="headerlink" title="设置用户名邮箱："></a>设置用户名邮箱：</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config –global user.email ‘username@163.com’</span><br></pre></td></tr></table></figure>
-
-<h2 id="对于在git-push可能出现的错误解决"><a href="#对于在git-push可能出现的错误解决" class="headerlink" title="对于在git push可能出现的错误解决"></a>对于在git push可能出现的错误解决</h2><ul>
-<li>出现以下错误：</li>
-</ul>
-<blockquote>
-<p><font color="red">The requested URL returned error:403 Forbidden while accessing</font></p>
-</blockquote>
-<ul>
-<li>错误原因：<br>私有项目，没有权限，输入用户名密码，或者远程地址采用这种类型</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi .git/config</span><br></pre></td></tr></table></figure>
-
-<p>将文件中的</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[remote <span class="string">&quot;origin&quot;</span>]</span><br><span class="line">  url = https://github.com/用户名/仓库名.git</span><br></pre></td></tr></table></figure>
-<p>改为以下内容</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[remote <span class="string">&quot;origin&quot;</span>]</span><br><span class="line">  url = https://用户名：密码@github.com/用户名/仓库名.git</span><br></pre></td></tr></table></figure>
-
-<h1 id="Git常用指令"><a href="#Git常用指令" class="headerlink" title="Git常用指令"></a>Git常用指令</h1><h2 id="配置基本用户信息"><a href="#配置基本用户信息" class="headerlink" title="配置基本用户信息"></a>配置基本用户信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name &lt;你的用户名&gt;</span><br><span class="line">git config --global user.email &lt;你的邮箱地址&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建一个新仓库"><a href="#创建一个新仓库" class="headerlink" title="创建一个新仓库"></a>创建一个新仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<h2 id="从远程服务器克隆一个仓库"><a href="#从远程服务器克隆一个仓库" class="headerlink" title="从远程服务器克隆一个仓库"></a>从远程服务器克隆一个仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;远程仓库的 Url&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="显示当前的工作目录下的提交文件状态"><a href="#显示当前的工作目录下的提交文件状态" class="headerlink" title="显示当前的工作目录下的提交文件状态"></a>显示当前的工作目录下的提交文件状态</h2><p>（类似于GitKroken中右方窗口显示的信息）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
-<h2 id="将制定文件Stage（标记为将要被提交的文件）"><a href="#将制定文件Stage（标记为将要被提交的文件）" class="headerlink" title="将制定文件Stage（标记为将要被提交的文件）"></a>将制定文件Stage（标记为将要被提交的文件）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add &lt;文件路径&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="将制定文件Unstage（取消标记为将要被提交的文件）"><a href="#将制定文件Unstage（取消标记为将要被提交的文件）" class="headerlink" title="将制定文件Unstage（取消标记为将要被提交的文件）"></a>将制定文件Unstage（取消标记为将要被提交的文件）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset &lt;文件路径&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建一个提交并提供提交信息"><a href="#创建一个提交并提供提交信息" class="headerlink" title="创建一个提交并提供提交信息"></a>创建一个提交并提供提交信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;提交信息&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="显示提交历史"><a href="#显示提交历史" class="headerlink" title="显示提交历史"></a>显示提交历史</h2><p>（类似于GitKroken中窗口中显示的提交历史）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="向远程仓库推送（Push）"><a href="#向远程仓库推送（Push）" class="headerlink" title="向远程仓库推送（Push）"></a>向远程仓库推送（Push）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
-
-<h2 id="从远程仓库拉取（Pull）"><a href="#从远程仓库拉取（Pull）" class="headerlink" title="从远程仓库拉取（Pull）"></a>从远程仓库拉取（Pull）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTTP协议</title>
     <url>/2019/08/29/HTTP%E5%8D%8F%E8%AE%AE/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="HTTP协议的概述"><a href="#HTTP协议的概述" class="headerlink" title="HTTP协议的概述"></a>HTTP协议的概述</h2><h3 id="什么是HTTP协议"><a href="#什么是HTTP协议" class="headerlink" title="什么是HTTP协议"></a>什么是HTTP协议</h3><p> <img src="https://img-blog.csdnimg.cn/20201002012352231.png?size_24#pic_center" alt="HTTP协议定义"><br>HTTP协议:规定了浏览器和服务器端的数据交互的格式</p>
@@ -253,40 +253,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JSON</title>
-    <url>/2019/09/01/JSON/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="json介绍"><a href="#json介绍" class="headerlink" title="json介绍"></a>json介绍</h1><p>JSON(JavaScript Object Notation)是一种轻量级的数据交换格式<br>json简单说就是javascript中的对象和数组<br>对象：<code>&#123;key:value,key:value,….&#125;</code><br>数组：<code>[”java”,”javascript”,”vb”,….]</code></p>
-<p>注意：在json中它的两种结构可以互相嵌套<br><code>&#123;key:[value1,value2],key:value&#125;</code><br><code>[&#123;name:xxx&#125;,&#123;key:value&#125;,&#123;key:value&#125;]</code></p>
-<h1 id="Fastjson介绍"><a href="#Fastjson介绍" class="headerlink" title="Fastjson介绍"></a>Fastjson介绍</h1><p>将java的对象转换成json数据也可以将一个json转换成java对象（不常用)）Fastjson是阿里提供的一个开源json插件<br>对于json处理的插件        fastison        jsonlib        flexison        Jackson</p>
-<p>Fastjson使用介绍</p>
-<ol>
-<li><p>导入相应的jar包</p>
-<img src="https://img-blog.csdnimg.cn/20201003094525408.png#pic_center" alt="相应jar包" style="zoom:150%;" />
-</li>
-<li><p>演示 fastison将java对象转换成json数据</p>
-</li>
-</ol>
-<blockquote>
-<p>String  json=JSONObject.toJsonString(java对象);</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//将一个Project对象转化为json</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//1.创建一个Project对象</span></span><br><span class="line">		Project p1 = <span class="keyword">new</span> Project();</span><br><span class="line">		p1.setId(<span class="number">1</span>);</span><br><span class="line">		p1.setCount(<span class="number">100</span>);</span><br><span class="line">		p1.setName(<span class="string">&quot;电视机&quot;</span>);</span><br><span class="line">		p1.setPrice(<span class="number">2000</span>);</span><br><span class="line">		p1.setpDate(<span class="keyword">new</span> Date());</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.使用fastjson将p1转换成json数据</span></span><br><span class="line">		<span class="comment">//&#123;id:xxx,name:xxx,price:xxx,count:xxx&#125;</span></span><br><span class="line">		</span><br><span class="line">		String json = JSONObject.toJSONString(p1);</span><br><span class="line">		System.out.println(json);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//将List&lt;Project&gt;对象转换成json</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//1.创建一个List&lt;Project&gt;对象</span></span><br><span class="line">		Project p1 = <span class="keyword">new</span> Project();</span><br><span class="line">		p1.setId(<span class="number">1</span>);</span><br><span class="line">		p1.setCount(<span class="number">200</span>);</span><br><span class="line">		p1.setName(<span class="string">&quot;电视机&quot;</span>);</span><br><span class="line">		p1.setPrice(<span class="number">2000</span>);</span><br><span class="line">		</span><br><span class="line">		Project p2 = <span class="keyword">new</span> Project();</span><br><span class="line">		p2.setId(<span class="number">2</span>);</span><br><span class="line">		p2.setCount(<span class="number">200</span>);</span><br><span class="line">		p2.setName(<span class="string">&quot;洗衣机&quot;</span>);</span><br><span class="line">		p2.setPrice(<span class="number">1000</span>);</span><br><span class="line">		</span><br><span class="line">		List&lt;Project&gt; list = <span class="keyword">new</span> ArrayList&lt;Project&gt;();</span><br><span class="line">		list.add(p1);</span><br><span class="line">		list.add(p2);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//将list转换成json</span></span><br><span class="line">		String json = JSONObject.toJSONString(list);</span><br><span class="line">		System.out.println(json);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.annotation.JSONField;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Project</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@JSONField(name = &quot;编号&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="meta">@JSONField(name = &quot;产品名称&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="meta">@JSONField(name = &quot;库存&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line">	<span class="meta">@JSONField(name = &quot;价格&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> price;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@JSONField(name = &quot;生产日期&quot;,format = &quot;yyyy年MM月dd日&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> Date pDate;<span class="comment">//生产日期</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Date <span class="title">getpDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> pDate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setpDate</span><span class="params">(Date pDate)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.pDate = pDate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> count;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCount</span><span class="params">(<span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.count = count;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> price;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPrice</span><span class="params">(<span class="keyword">double</span> price)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.price = price;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>问题：将java对象转换成json时，名称是否可以自己来指定？<br><img src="https://img-blog.csdnimg.cn/20201003094700661.png#pic_center" alt="指定名称操作"><br>问题：如果java对象中存在日期类型属性java.util.Date，是否可以用指定的格式来转换成json。<br><img src="https://img-blog.csdnimg.cn/20201003094714187.png#pic_center" alt="指定格式操作"></p>
-<p>问题：如果java类中的某些属性不想生成json中？<br><img src="https://img-blog.csdnimg.cn/2020100309472713.png#pic_center" alt="部分属性不生成json操作"></p>
-<p><img src="https://img-blog.csdnimg.cn/20201003094747739.png#pic_center" alt="在这里插入图片描述"></p>
-<p>问题：关于fastjson将java对象转换成json时的循环引用问题<br><img src="https://img-blog.csdnimg.cn/20201003094802215.png#pic_center" alt="循环引用问题"><br>通过以下设置可以取消循环引用<br><img src="https://img-blog.csdnimg.cn/20201003094824443.png#pic_center" alt="取消循环引用" style="zoom:150%;" /></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>json</tag>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PHP基础</title>
     <url>/2019/11/12/PHP%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>PHP的结构类似于HTML，两端由<code>&lt;?php  ?&gt;</code>包裹起来。代码写在标签内部。<code>?&gt;</code>后便签可要可不要。</p>
@@ -352,6 +318,40 @@
       </categories>
       <tags>
         <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JSON</title>
+    <url>/2019/09/01/JSON/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="json介绍"><a href="#json介绍" class="headerlink" title="json介绍"></a>json介绍</h1><p>JSON(JavaScript Object Notation)是一种轻量级的数据交换格式<br>json简单说就是javascript中的对象和数组<br>对象：<code>&#123;key:value,key:value,….&#125;</code><br>数组：<code>[”java”,”javascript”,”vb”,….]</code></p>
+<p>注意：在json中它的两种结构可以互相嵌套<br><code>&#123;key:[value1,value2],key:value&#125;</code><br><code>[&#123;name:xxx&#125;,&#123;key:value&#125;,&#123;key:value&#125;]</code></p>
+<h1 id="Fastjson介绍"><a href="#Fastjson介绍" class="headerlink" title="Fastjson介绍"></a>Fastjson介绍</h1><p>将java的对象转换成json数据也可以将一个json转换成java对象（不常用)）Fastjson是阿里提供的一个开源json插件<br>对于json处理的插件        fastison        jsonlib        flexison        Jackson</p>
+<p>Fastjson使用介绍</p>
+<ol>
+<li><p>导入相应的jar包</p>
+<img src="https://img-blog.csdnimg.cn/20201003094525408.png#pic_center" alt="相应jar包" style="zoom:150%;" />
+</li>
+<li><p>演示 fastison将java对象转换成json数据</p>
+</li>
+</ol>
+<blockquote>
+<p>String  json=JSONObject.toJsonString(java对象);</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//将一个Project对象转化为json</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//1.创建一个Project对象</span></span><br><span class="line">		Project p1 = <span class="keyword">new</span> Project();</span><br><span class="line">		p1.setId(<span class="number">1</span>);</span><br><span class="line">		p1.setCount(<span class="number">100</span>);</span><br><span class="line">		p1.setName(<span class="string">&quot;电视机&quot;</span>);</span><br><span class="line">		p1.setPrice(<span class="number">2000</span>);</span><br><span class="line">		p1.setpDate(<span class="keyword">new</span> Date());</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.使用fastjson将p1转换成json数据</span></span><br><span class="line">		<span class="comment">//&#123;id:xxx,name:xxx,price:xxx,count:xxx&#125;</span></span><br><span class="line">		</span><br><span class="line">		String json = JSONObject.toJSONString(p1);</span><br><span class="line">		System.out.println(json);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//将List&lt;Project&gt;对象转换成json</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//1.创建一个List&lt;Project&gt;对象</span></span><br><span class="line">		Project p1 = <span class="keyword">new</span> Project();</span><br><span class="line">		p1.setId(<span class="number">1</span>);</span><br><span class="line">		p1.setCount(<span class="number">200</span>);</span><br><span class="line">		p1.setName(<span class="string">&quot;电视机&quot;</span>);</span><br><span class="line">		p1.setPrice(<span class="number">2000</span>);</span><br><span class="line">		</span><br><span class="line">		Project p2 = <span class="keyword">new</span> Project();</span><br><span class="line">		p2.setId(<span class="number">2</span>);</span><br><span class="line">		p2.setCount(<span class="number">200</span>);</span><br><span class="line">		p2.setName(<span class="string">&quot;洗衣机&quot;</span>);</span><br><span class="line">		p2.setPrice(<span class="number">1000</span>);</span><br><span class="line">		</span><br><span class="line">		List&lt;Project&gt; list = <span class="keyword">new</span> ArrayList&lt;Project&gt;();</span><br><span class="line">		list.add(p1);</span><br><span class="line">		list.add(p2);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//将list转换成json</span></span><br><span class="line">		String json = JSONObject.toJSONString(list);</span><br><span class="line">		System.out.println(json);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.annotation.JSONField;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Project</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@JSONField(name = &quot;编号&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="meta">@JSONField(name = &quot;产品名称&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="meta">@JSONField(name = &quot;库存&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line">	<span class="meta">@JSONField(name = &quot;价格&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> price;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@JSONField(name = &quot;生产日期&quot;,format = &quot;yyyy年MM月dd日&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> Date pDate;<span class="comment">//生产日期</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Date <span class="title">getpDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> pDate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setpDate</span><span class="params">(Date pDate)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.pDate = pDate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> count;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCount</span><span class="params">(<span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.count = count;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> price;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPrice</span><span class="params">(<span class="keyword">double</span> price)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.price = price;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题：将java对象转换成json时，名称是否可以自己来指定？<br><img src="https://img-blog.csdnimg.cn/20201003094700661.png#pic_center" alt="指定名称操作"><br>问题：如果java对象中存在日期类型属性java.util.Date，是否可以用指定的格式来转换成json。<br><img src="https://img-blog.csdnimg.cn/20201003094714187.png#pic_center" alt="指定格式操作"></p>
+<p>问题：如果java类中的某些属性不想生成json中？<br><img src="https://img-blog.csdnimg.cn/2020100309472713.png#pic_center" alt="部分属性不生成json操作"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201003094747739.png#pic_center" alt="在这里插入图片描述"></p>
+<p>问题：关于fastjson将java对象转换成json时的循环引用问题<br><img src="https://img-blog.csdnimg.cn/20201003094802215.png#pic_center" alt="循环引用问题"><br>通过以下设置可以取消循环引用<br><img src="https://img-blog.csdnimg.cn/20201003094824443.png#pic_center" alt="取消循环引用" style="zoom:150%;" /></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>json</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -784,6 +784,27 @@
       </tags>
   </entry>
   <entry>
+    <title>博客文章模板</title>
+    <url>/2019/09/01/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
+  </entry>
+  <entry>
     <title>会话技术(Cookie,Session)</title>
     <url>/2019/09/01/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF(Cookie,Session)/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="什么是会话"><a href="#什么是会话" class="headerlink" title="什么是会话"></a>什么是会话</h1><p>会话简单理解为：用户打开一个浏览器，点击多个超连接访问服务器的web资源，然后关闭浏览器，整个过程称为是一次会话。</p>
@@ -873,27 +894,6 @@ Session作为域对象，作用范围就是<font color="red">一次会话</font>
         <tag>Cookie</tag>
         <tag>Session</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>博客文章模板</title>
-    <url>/2019/09/01/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>其它</category>
-      </categories>
   </entry>
   <entry>
     <title>观察者模式：秒杀启动案例（含Quartz的简单应用）</title>
